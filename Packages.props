@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <PackageReference Update="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Update="Microsoft.AspNetCore.Http" Version="2.2.2"/>
+    <PackageReference Update="Microsoft.AspNetCore.JsonPatch" Version="6.0.9" />
+    <PackageReference Update="System.Text.Json" Version="6.0.6" />
+    <PackageReference Update="HotChocolate.AspNetCore" Version="12.14.0" />
+    <PackageReference Update="HotChocolate.Diagnostics" Version="12.14.0" />
+    <PackageReference Update="HotChocolate.Types" Version="12.14.0" />
+    <PackageReference Update="HotChocolate.Stitching.Redis" Version="12.14.0" />
+    <PackageReference Update="HotChocolate.Types.Analyzers" Version="12.14.0" />
+  </ItemGroup>
+</Project>

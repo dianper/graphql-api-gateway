@@ -7,8 +7,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="HotChocolate.AspNetCore" Version="12.8.1" />
-		<PackageReference Include="HotChocolate.Stitching.Redis" Version="12.8.1" />
+		<PackageReference Include="HotChocolate.AspNetCore" />
+		<PackageReference Include="HotChocolate.Stitching.Redis" />
 	</ItemGroup>
 
 </Project>

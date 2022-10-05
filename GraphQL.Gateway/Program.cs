@@ -1,17 +1,19 @@
+using GraphQL.Gateway.Configuration;
+using GraphQL.Gateway.Extensions;
 using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services
-    .AddHttpClient("serviceA", c => c.BaseAddress = new Uri("http://localhost:5002/graphql"));
+var graphQlConfig = new GraphQLConfiguration();
+builder.Configuration.GetSection("GraphQL").Bind(graphQlConfig);
 
 builder.Services
-    .AddHttpClient("serviceB", c => c.BaseAddress = new Uri("http://localhost:5003/graphql"));
+    .AddGraphQLServices(graphQlConfig);
 
 builder.Services
-    .AddSingleton(ConnectionMultiplexer.Connect("localhost"))
+    .AddSingleton(ConnectionMultiplexer.Connect(graphQlConfig.Redis!.Endpoint))
     .AddGraphQLServer()
-    .AddRemoteSchemasFromRedis("gateway", sp => sp.GetRequiredService<ConnectionMultiplexer>());
+    .AddRemoteSchemasFromRedis(graphQlConfig.ServiceName!, sp => sp.GetRequiredService<ConnectionMultiplexer>());
 
 var app = builder.Build();
 

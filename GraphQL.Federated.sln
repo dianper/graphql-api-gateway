@@ -13,6 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.ServiceA", "GraphQL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.ServiceB", "GraphQL.ServiceB\GraphQL.ServiceB.csproj", "{1B88543B-4277-4A2A-AD57-D1E465A4713A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{55B4D46F-2662-4901-B3ED-9817ED863BD3}"
+	ProjectSection(SolutionItems) = preProject
+		Packages.props = Packages.props
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

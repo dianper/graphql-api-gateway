@@ -1,17 +1,20 @@
+using GraphQL.ServiceA.Configuration;
+using GraphQL.ServiceA.Extensions;
 using GraphQL.ServiceA.Types;
 using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var graphQlConfig = new GraphQLConfiguration();
+builder.Configuration.GetSection("GraphQL").Bind(graphQlConfig);
+
 builder.Services
-    .AddSingleton(ConnectionMultiplexer.Connect("localhost"))
+    .AddSingleton(ConnectionMultiplexer.Connect(graphQlConfig.Redis!.Endpoint))
     .AddGraphQLServer()
     .AddQueryType<Query>()
     .AddTypeExtension<QueryComment>()
     .InitializeOnStartup()
-    .PublishSchemaDefinition(c => c
-        .SetName("serviceA")
-        .PublishToRedis("gateway", sp => sp.GetRequiredService<ConnectionMultiplexer>()));
+    .CustomPublishSchemaDefinition(graphQlConfig);
 
 var app = builder.Build();
 
