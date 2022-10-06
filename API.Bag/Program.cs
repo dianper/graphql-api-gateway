@@ -14,6 +14,8 @@ builder.Services
     .AddSingleton<BagRepository>()
     .AddGraphQLServer()
     .AddQueryType<Query>()
+    .AddMutationType<Mutation>()
+    .AddMutationConventions(applyToAllMutations: true)
     .InitializeOnStartup()
     .CustomPublishSchemaDefinition(graphQlConfig);
 

@@ -5,6 +5,9 @@ using API.Bag.Repositories;
 
 public class Query
 {
-    public Bag? GetBagByUser(string username, [Service] BagRepository bagRepository) =>
-        bagRepository.GetBagByUser(username);
+    public Bag? GetBagById(int id, [Service] BagRepository bagRepository) =>
+        bagRepository.GetBagById(id);
+
+    public Bag? GetBagByUsername(string username, [Service] BagRepository bagRepository) =>
+        bagRepository.GetBagByUsername(username);
 }

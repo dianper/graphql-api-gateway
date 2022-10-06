@@ -4,9 +4,11 @@ public record Bag
 {
     public int Id { get; init; }
 
-    public IEnumerable<BagItem>? Items { get; init; }
+    public IEnumerable<BagItem> Items { get; set; }
 
     public User? User { get; init; }
+
+    public int Quantity { get => this.Items.Count(); }
 
     public double Total
     {
