@@ -1,8 +1,7 @@
-using API.Catalog.Configuration;
-using API.Catalog.Extensions;
-using API.Catalog.Repositories;
-using API.Catalog.Services;
-using API.Catalog.Types;
+using API.Common.Configuration;
+using API.Common.Extensions;
+using API.Common.Repositories;
+using API.Common.Types;
 using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,14 +11,9 @@ builder.Configuration.GetSection("GraphQL").Bind(graphQlConfig);
 
 builder.Services
     .AddSingleton(ConnectionMultiplexer.Connect(graphQlConfig.Redis!.Endpoint))
-    .AddSingleton<BrandRepository>()
-    .AddSingleton<ProductRepository>()
     .AddSingleton<UserRepository>()
-    .AddScoped<IBrandService, BrandService>()
     .AddGraphQLServer()
-    .AddFiltering()
     .AddQueryType<Query>()
-    .AddTypeExtension<QueryBrand>()
     .InitializeOnStartup()
     .CustomPublishSchemaDefinition(graphQlConfig);
 

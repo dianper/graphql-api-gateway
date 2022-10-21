@@ -1,3 +1,3 @@
 ﻿namespace API.Bag.Models;
 
-public record BagItem(Product Product, int Quantity);
+public record BagItem(int ProductId, int Quantity);

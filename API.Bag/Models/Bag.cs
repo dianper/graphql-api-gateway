@@ -4,31 +4,31 @@ public record Bag
 {
     public int Id { get; init; }
 
-    public IEnumerable<BagItem> Items { get; set; }
+    public int UserId { get; set; }
 
-    public User? User { get; init; }
+    public IEnumerable<BagItem> Items { get; set; }
 
     public int Quantity { get => this.Items.Count(); }
 
-    public double Total
-    {
-        get
-        {
-            double total = 0;
+    //public double Total
+    //{
+    //    get
+    //    {
+    //        double total = 0;
 
-            foreach (var item in Items!)
-            {
-                total += item.Product.Price * item.Quantity;
-            }
+    //        foreach (var item in Items!)
+    //        {
+    //            total += item.Product.Price * item.Quantity;
+    //        }
 
-            return total;
-        }
-    }
+    //        return total;
+    //    }
+    //}
 
-    public Bag(int id, IEnumerable<BagItem>? items, User user)
+    public Bag(int id, int userId, IEnumerable<BagItem>? items)
     {
         this.Id = id;
-        this.Items = items ?? new List<BagItem>();
-        this.User = user;
+        this.UserId = userId;
+        this.Items = items ?? Enumerable.Empty<BagItem>();
     }
 }

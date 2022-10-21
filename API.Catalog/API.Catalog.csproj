@@ -10,6 +10,7 @@
 		<PackageReference Include="HotChocolate.AspNetCore" />
 		<PackageReference Include="HotChocolate.Stitching.Redis" />
 		<PackageReference Include="HotChocolate.Types.Analyzers" />
+		<PackageReference Include="HotChocolate.Data" />
 	</ItemGroup>
 
 </Project>

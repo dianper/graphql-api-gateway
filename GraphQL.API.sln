@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Packages.props = Packages.props
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Common", "API.Common\API.Common.csproj", "{363F672B-4B18-4C2D-9C8E-7BE89F2126B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{1B88543B-4277-4A2A-AD57-D1E465A4713A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B88543B-4277-4A2A-AD57-D1E465A4713A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B88543B-4277-4A2A-AD57-D1E465A4713A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{363F672B-4B18-4C2D-9C8E-7BE89F2126B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{363F672B-4B18-4C2D-9C8E-7BE89F2126B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{363F672B-4B18-4C2D-9C8E-7BE89F2126B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{363F672B-4B18-4C2D-9C8E-7BE89F2126B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

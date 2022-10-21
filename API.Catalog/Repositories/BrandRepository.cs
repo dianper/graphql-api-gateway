@@ -17,4 +17,8 @@ public class BrandRepository
     }
 
     public IEnumerable<Brand> GetBrands() => _brands;
+
+    public Brand? GetBrandById(int id) => _brands.FirstOrDefault(b => b.Id == id);
+
+    public IEnumerable<Brand> GetBrandsByIds(int[] ids) => _brands.Where(b => ids.Contains(b.Id));
 }

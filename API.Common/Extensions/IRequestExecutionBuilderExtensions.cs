@@ -1,6 +1,6 @@
-﻿namespace API.Catalog.Extensions;
+﻿namespace API.Common.Extensions;
 
-using API.Catalog.Configuration;
+using API.Common.Configuration;
 using HotChocolate.Execution.Configuration;
 using StackExchange.Redis;
 
@@ -14,7 +14,7 @@ public static class IRequestExecutionBuilderExtensions
         {
             builder.PublishSchemaDefinition(c => c
                 .SetName(graphQlConfiguration.ServiceName!)
-                //.AddTypeExtensionsFromFile("./Stitching.graphql")
+                .AddTypeExtensionsFromFile("./Stitching.graphql")
                 .PublishToRedis(graphQlConfiguration.GatewayName!, sp => sp.GetRequiredService<ConnectionMultiplexer>()));
         }
 

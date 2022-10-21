@@ -13,8 +13,8 @@ builder.Services
 builder.Services
     .AddSingleton(ConnectionMultiplexer.Connect(graphQlConfig.Redis!.Endpoint))
     .AddGraphQLServer()
-    .AddRemoteSchemasFromRedis(graphQlConfig.ServiceName!, sp => sp.GetRequiredService<ConnectionMultiplexer>())
-    .RenameType("Product", "CatalogProduct", "catalog");
+    .AddRemoteSchemasFromRedis(graphQlConfig.ServiceName!, sp => sp.GetRequiredService<ConnectionMultiplexer>());
+//.RenameType("Product", "CatalogProduct", "catalog");
 
 var app = builder.Build();
 
