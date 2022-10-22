@@ -1,3 +1,1 @@
-﻿extend type BagItem {
-  product: Product @delegate(path: "productById(id: $fields:productId)", schema: "catalog")
-}
+﻿

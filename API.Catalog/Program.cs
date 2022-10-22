@@ -3,6 +3,7 @@ using API.Catalog.Extensions;
 using API.Catalog.Repositories;
 using API.Catalog.Services;
 using API.Catalog.Types;
+using Framework.Diagnostics.ExecutionEvents;
 using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,7 @@ builder.Services
     .AddSingleton<UserRepository>()
     .AddScoped<IBrandService, BrandService>()
     .AddGraphQLServer()
+    .AddDiagnosticEventListener<CustomExecutionEventListener>()
     .AddFiltering()
     .AddQueryType<Query>()
     .AddTypeExtension<QueryBrand>()

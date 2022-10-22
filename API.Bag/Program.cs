@@ -2,6 +2,7 @@ using API.Bag.Configuration;
 using API.Bag.Extensions;
 using API.Bag.Repositories;
 using API.Bag.Types;
+using Framework.Diagnostics.ExecutionEvents;
 using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,7 @@ builder.Services
     .AddSingleton(ConnectionMultiplexer.Connect(graphQlConfig.Redis!.Endpoint))
     .AddSingleton<BagRepository>()
     .AddGraphQLServer()
+    .AddDiagnosticEventListener<CustomExecutionEventListener>()
     .AddQueryType<Query>()
     .AddMutationType<Mutation>()
     .AddMutationConventions(applyToAllMutations: true)

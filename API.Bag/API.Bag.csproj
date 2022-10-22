@@ -12,4 +12,8 @@
 		<PackageReference Include="HotChocolate.Types.Analyzers" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Framework.Diagnostics\Framework.Diagnostics.csproj" />
+	</ItemGroup>
+
 </Project>

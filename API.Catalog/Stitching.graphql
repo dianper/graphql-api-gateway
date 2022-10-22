@@ -1,1 +1,9 @@
-﻿
+﻿extend type User {
+  favoriteBrandsByFilter: [Brand] @delegate(path: "brands(where: { id: { in: $fields:brandIds } })", schema: "catalog")
+  favoriteBrandsByBrandIds: [Brand] @delegate(path: "brandsByIds(ids: $fields:brandIds)", schema: "catalog")
+  favoriteBrandsByUserId: [Brand] @delegate(path: "brandsByUserId(id: $fields:id)", schema: "catalog")
+}
+
+extend type BagItem {
+  product: Product @delegate(path: "productById(id: $fields:productId)", schema: "catalog")
+}
