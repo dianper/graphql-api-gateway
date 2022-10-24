@@ -10,15 +10,17 @@ public class BrandRepository
     {
         _brands = new List<Brand>
         {
-            new (1, "Nike"),
-            new (2, "Oakley"),
-            new (3, "Levis")
+            new (1, "Nike", "Nike"),
+            new (2, "Oakley", "Oakley"),
+            new (3, "Levis", "Levis")
         };
     }
 
-    public IEnumerable<Brand> GetBrands() => _brands;
+    public IEnumerable<Brand> GetAll() => _brands;
 
-    public Brand? GetBrandById(int id) => _brands.FirstOrDefault(b => b.Id == id);
+    public Brand GetByIndex(int index) => _brands.ElementAt(index);
 
-    public IEnumerable<Brand> GetBrandsByIds(int[] ids) => _brands.Where(b => ids.Contains(b.Id));
+    public Brand? GetById(int id) => _brands.FirstOrDefault(b => b.Id == id);
+
+    public IEnumerable<Brand> GetByIds(int[] ids) => _brands.Where(b => ids.Contains(b.Id));
 }

@@ -4,11 +4,19 @@ using API.Common.Models;
 
 public class BrandRepository
 {
-    private readonly IEnumerable<FavoriteBrand> _brands;
+    private readonly IEnumerable<CommonBrand> _commonBrands;
+    private readonly IEnumerable<Brand> _brands;
 
     public BrandRepository()
     {
-        _brands = new List<FavoriteBrand>
+        _commonBrands = new List<CommonBrand>
+        {
+            new (1, "Nike"),
+            new (2, "Oakley"),
+            new (3, "Levis")
+        };
+
+        _brands = new List<Brand>
         {
             new (1, "Nike"),
             new (2, "Oakley"),
@@ -16,6 +24,9 @@ public class BrandRepository
         };
     }
 
-    public IEnumerable<FavoriteBrand> GetByIds(int[]? ids) =>
-        ids != null ? _brands.Where(b => ids.Contains(b.Id)) : Enumerable.Empty<FavoriteBrand>();
+    public IEnumerable<CommonBrand> GetByIds(int[]? ids) =>
+        ids != null ? _commonBrands.Where(b => ids.Contains(b.Id)) : Enumerable.Empty<CommonBrand>();
+
+    public IEnumerable<Brand> GetBrandsByIds(int[]? ids) =>
+        ids != null ? _brands.Where(b => ids.Contains(b.Id)) : Enumerable.Empty<Brand>();
 }

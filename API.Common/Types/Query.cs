@@ -15,6 +15,9 @@ public class Query
 [ExtendObjectType(typeof(User))]
 public class UserExtensions
 {
-    public IEnumerable<FavoriteBrand> GetFavoriteBrands([Parent] User user, [Service] BrandRepository brandRepository) =>
-        brandRepository.GetByIds(user.BrandIds);
+    public IEnumerable<CommonBrand> GetFavoriteCommonBrands([Parent] User user, [Service] BrandRepository brandRepository) =>
+        brandRepository.GetByIds(user.FavoriteBrandIds);
+
+    public IEnumerable<Brand> GetFavoriteBrands([Parent] User user, [Service] BrandRepository brandRepository) =>
+        brandRepository.GetBrandsByIds(user.FavoriteBrandIds);
 }

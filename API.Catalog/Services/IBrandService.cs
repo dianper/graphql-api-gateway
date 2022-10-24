@@ -29,17 +29,17 @@ public class BrandService : IBrandService
 
     public Brand? GetBrandById(int id)
     {
-        return this.brandRepository.GetBrandById(id);
+        return this.brandRepository.GetById(id);
     }
 
     public IEnumerable<Brand> GetBrands()
     {
-        return this.brandRepository.GetBrands();
+        return this.brandRepository.GetAll();
     }
 
     public IEnumerable<Brand> GetBrandsByIds(int[] ids)
     {
-        return this.brandRepository.GetBrandsByIds(ids);
+        return this.brandRepository.GetByIds(ids);
     }
 
     public IEnumerable<Brand> GetBrandsByUserId(int id)
@@ -48,7 +48,7 @@ public class BrandService : IBrandService
 
         if (brandIds != null && brandIds.Any())
         {
-            return this.brandRepository.GetBrandsByIds(brandIds);
+            return this.brandRepository.GetByIds(brandIds);
         }
 
         return Enumerable.Empty<Brand>();

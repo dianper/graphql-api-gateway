@@ -14,7 +14,6 @@ public static class IRequestExecutionBuilderExtensions
         {
             builder.PublishSchemaDefinition(c => c
                 .SetName(graphQlConfiguration.ServiceName!)
-                //.AddTypeExtensionsFromFile("./Stitching.graphql")
                 .PublishToRedis(graphQlConfiguration.GatewayName!, sp => sp.GetRequiredService<ConnectionMultiplexer>()));
         }
 

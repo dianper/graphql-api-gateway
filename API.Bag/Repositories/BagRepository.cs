@@ -8,13 +8,7 @@ public class BagRepository
 
     public BagRepository()
     {
-        _bags = new List<Bag>
-        {
-            new Bag(id: 1, userId: 1, items: new[] { new BagItem(ProductId: 1, Quantity: 1) }),
-            new Bag(id: 2, userId: 1, items: new[] { new BagItem(ProductId: 2, Quantity: 5) }),
-            new Bag(id: 3, userId: 2, items: new[] { new BagItem(ProductId: 3, Quantity: 10) }),
-            new Bag(id: 4, userId: 3, items: new[] { new BagItem(ProductId: 4, Quantity: 15) }),
-        };
+        _bags = Bags();
     }
 
     public Bag? GetById(int id) => _bags.FirstOrDefault(b => b.Id == id);
@@ -36,4 +30,28 @@ public class BagRepository
 
         return bag;
     }
+
+    private static IList<Bag> Bags() => new List<Bag>
+    {
+        new Bag(
+            id: 1,
+            userId: 1,
+            items: new[] { new BagItem(ProductId: 1, Quantity: 1) }
+        ),
+        new Bag(
+            id: 2,
+            userId: 1,
+            items: new[] { new BagItem(ProductId: 2, Quantity: 5) }
+        ),
+        new Bag(
+            id: 3,
+            userId: 2,
+            items: new[] { new BagItem(ProductId: 3, Quantity: 10) }
+        ),
+        new Bag(
+            id: 4,
+            userId: 3,
+            items: new[] { new BagItem(ProductId: 4, Quantity: 15) }
+        ),
+    };
 }
